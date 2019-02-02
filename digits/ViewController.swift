@@ -10,15 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func printDigits(digit: Int) {
-        for i in 0...digit {
-            print("\(i) \(digit - i)")
+    func resultDivide(digit: Int, divide: Int) -> (Bool){
+        return (digit % divide == 0 ? true : false)
+    }
+    
+    func printDivides(number: Int) {
+        var countDevides = 0
+        for i in 1...number {
+            if resultDivide(digit: number, divide: i) {
+                print("\(number) divided on \(i)")
+                countDevides += 1
+            }
+            else {
+                continue
+            }
         }
+        print("Count of devides = \(countDevides)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        printDigits(digit: 5)
+        printDivides(number: 10)
     }
     
 }
