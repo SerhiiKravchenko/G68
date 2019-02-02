@@ -10,13 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func whoIsBigger(firstDigit: Int, secondDigit: Int) {
-        print(firstDigit > secondDigit ? "\(firstDigit) is bigger than \(secondDigit)" : "\(secondDigit) is bigger than \(firstDigit)")
+    func multCount(number: Int, count: Int) -> (Int){
+        var result = number
+        for _ in 0..<count - 1 {
+            result *= number
+        }
+        return result
     }
+    
+    func sqrtAndCube(number: Int) {
+        print(multCount(number: number, count: 2))
+        print(multCount(number: number, count: 3))
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        whoIsBigger(firstDigit: 5, secondDigit: 10)
+        sqrtAndCube(number: 125)
     }
     
 }
