@@ -10,19 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func sumOfMoney() {
-        var sum = 24.0
-        var percents = 0.0
-        for _ in 0..<2019-1826 {
-            percents = sum / 100 * 6
-            sum = sum + percents
+    func sumForTenMonth(scholarship: Int, sumPerMonth: Int) -> (Int){
+        let percentPerMonth = 3.0
+        let period = 10
+        let scholarshipByPeriod = scholarship * period
+        var sum = Double(sumPerMonth)
+        var totalMoney = 0.0
+        for _ in 0..<period {
+            let percentPerMonthInMoney = sum / 100.0 * percentPerMonth
+            sum = sum + percentPerMonthInMoney
+            totalMoney += sum
         }
-        print("Total money for all period $\(Int(sum))")
+        let result = Int(totalMoney) - scholarshipByPeriod
+        return result
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sumOfMoney()
+        print("Need more money to survive $\(sumForTenMonth(scholarship: 700, sumPerMonth: 1000))")
     }
     
 }
