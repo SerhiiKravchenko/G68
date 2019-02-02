@@ -16,21 +16,24 @@ class ViewController: UIViewController {
     
     func printDivides(number: Int) {
         var countDevides = 0
-        for i in 1...number {
+        var sumOfDevides = 0
+        for i in 1..<number {
             if resultDivide(digit: number, divide: i) {
                 print("\(number) divided on \(i)")
                 countDevides += 1
+                sumOfDevides += i
             }
             else {
                 continue
             }
         }
         print("Count of devides = \(countDevides)")
+        print(sumOfDevides == number ? "\(number) is a perfect number" : "\(number) is NOT a perfect number")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        printDivides(number: 10)
+        printDivides(number: 496)
     }
     
 }
