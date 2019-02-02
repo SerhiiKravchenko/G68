@@ -10,24 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func surviveMonth(scholarship: Int, sumPerMonth: Int, ownMoney: Int) -> (Int){
-        let percentPerMonth = 3.0
-        var money = Double(ownMoney)
-        var sum = Double(sumPerMonth)
-        var countOfMonths = 0
-        while money > 0 {
-            money += Double(scholarship)
-            let percentPerMonthInMoney = sum / 100.0 * percentPerMonth
-            sum = sum + percentPerMonthInMoney
-            money -= sum
-            countOfMonths += 1
+    func revertNumber(number: Int) -> (Int) {
+        var inputNumber = number
+        var result = 0
+        
+        while inputNumber > 0 {
+            var oneNumber = 0
+            oneNumber = inputNumber % 10
+            inputNumber /= 10
+            result *= 10
+            result += oneNumber
         }
-        return countOfMonths - 1
+        return result
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Survive \(surviveMonth(scholarship: 700, sumPerMonth: 1000, ownMoney: 2400)) month(s)")
+        print(revertNumber(number: 12345))
     }
     
 }
