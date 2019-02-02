@@ -10,30 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func resultDivide(digit: Int, divide: Int) -> (Bool){
-        return (digit % divide == 0 ? true : false)
-    }
-    
-    func printDivides(number: Int) {
-        var countDevides = 0
-        var sumOfDevides = 0
-        for i in 1..<number {
-            if resultDivide(digit: number, divide: i) {
-                print("\(number) divided on \(i)")
-                countDevides += 1
-                sumOfDevides += i
-            }
-            else {
-                continue
-            }
+    func sumOfMoney() {
+        var sum = 24.0
+        var percents = 0.0
+        for _ in 0..<2019-1826 {
+            percents = sum / 100 * 6
+            sum = sum + percents
         }
-        print("Count of devides = \(countDevides)")
-        print(sumOfDevides == number ? "\(number) is a perfect number" : "\(number) is NOT a perfect number")
+        print("Total money for all period $\(Int(sum))")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        printDivides(number: 496)
+        sumOfMoney()
     }
     
 }
