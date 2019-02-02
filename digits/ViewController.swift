@@ -10,22 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func multCount(number: Int, count: Int) -> (Int){
-        var result = number
-        for _ in 0..<count - 1 {
-            result *= number
+    func printDigits(digit: Int) {
+        for i in 0...digit {
+            print("\(i) \(digit - i)")
         }
-        return result
     }
-    
-    func sqrtAndCube(number: Int) {
-        print(multCount(number: number, count: 2))
-        print(multCount(number: number, count: 3))
-        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sqrtAndCube(number: 125)
+        printDigits(digit: 5)
     }
     
 }
