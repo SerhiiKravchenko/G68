@@ -49,11 +49,21 @@ class ViewController: UIViewController {
         print("Hello, \(splited)")
     }
     
+    //Reverse string
+    func reverseString(str: String) {
+        var reversed = ""
+        for chr in str {
+            reversed = "\(chr)" + reversed
+        }
+        print(reversed)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         symbolCount(str: "Serhii")
         endOfPatronymic(str: "Сергеевич")
         splitNameSurname(str: "SerhiiKravchenko")
+        reverseString(str: "ReverseMe")
     }
 
 }
