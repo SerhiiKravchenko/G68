@@ -10,17 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func digits() {
-        
+    func symbolCount(str: String) {
+        print("Count symbols in your name = \(str.count)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        symbolCount(str: "Serhii")
     }
-
-    
-    
 
 }
 
