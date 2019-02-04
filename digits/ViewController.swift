@@ -28,10 +28,32 @@ class ViewController: UIViewController {
         }
     }
     
+    //Split Name and Surname
+    func splitNameSurname(str: String) {
+        var splited = ""
+        for chr in str {
+            let symbol = String(chr)
+            if chr == str.first {
+                splited.append(symbol.uppercased())
+                continue
+            }
+            if symbol.lowercased() == symbol{
+                splited.append(symbol)
+                continue
+            }
+            else {
+                splited.append(" " + symbol)
+            }
+                
+        }
+        print("Hello, \(splited)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         symbolCount(str: "Serhii")
         endOfPatronymic(str: "Сергеевич")
+        splitNameSurname(str: "SerhiiKravchenko")
     }
 
 }
