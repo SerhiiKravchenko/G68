@@ -109,6 +109,30 @@ class ViewController: UIViewController {
         }
     }
     
+    //sort array
+    func sortArray(arr: [Int]) {
+        var inputArr = arr
+        var isSorted = false
+        var num = 0
+        while isSorted != true {
+            isSorted = true
+            for i in 0..<inputArr.count-1 {
+                if inputArr[i] == inputArr[i+1] {
+                    inputArr.remove(at: i)
+                    isSorted = false
+                    break
+                }
+                if(inputArr[i] > inputArr[i+1]) {
+                    isSorted = false
+                    num = inputArr[i]
+                    inputArr[i] = inputArr[i+1]
+                    inputArr[i+1] = num
+                }
+            }
+        }
+        print(inputArr)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         symbolCount(str: "Serhii")
@@ -117,6 +141,7 @@ class ViewController: UIViewController {
         reverseString(str: "ReverseMe")
         numberSplitByComa(number: "12345678444444444444444444569")
         passCheck(str: "ABn0,")
+        sortArray(arr: [9, 1, 2, 5, 1, 7, 7, 5])
     }
 
 }
