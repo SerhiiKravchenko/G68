@@ -50,29 +50,30 @@ class ViewController: UIViewController {
     }
     
     //Reverse string
-    func reverseString(str: String) -> String {
+    func reverseString(str: String) {
         var reversed = ""
         for chr in str {
             reversed = "\(chr)" + reversed
         }
-        return reversed
+        print(reversed)
     }
     
     //Number split
     func numberSplitByComa(number: String) {
-        let inputString = reverseString(str: number)
         var str = ""
-        var count = 0
-        for i in inputString {
-            if count % 3 == 0 && count != 0{
-                str = str + ",\(i)"
+        for i in 1..<number.count + 1 {
+            if i == number.count {
+                str = "\(number[number.index(number.startIndex, offsetBy: number.count - i)])" + str
+                break
+            }
+            if i % 3 == 0{
+                str = ",\(number[number.index(number.startIndex, offsetBy: number.count - i)])" + str
             }
             else {
-                str = str + "\(i)"
+                str = "\(number[number.index(number.startIndex, offsetBy: number.count - i)])" + str
             }
-            count += 1
         }
-        print(reverseString(str: str))
+        print(str)
     }
     
     override func viewDidLoad() {
@@ -80,8 +81,8 @@ class ViewController: UIViewController {
         symbolCount(str: "Serhii")
         endOfPatronymic(str: "Сергеевич")
         splitNameSurname(str: "SerhiiKravchenko")
-        print(reverseString(str: "ReverseMe"))
-        numberSplitByComa(number: "123456784444444444444444445")
+        reverseString(str: "ReverseMe")
+        numberSplitByComa(number: "12345678444444444444444444569")
     }
 
 }
