@@ -133,6 +133,21 @@ class ViewController: UIViewController {
         print(inputArr)
     }
     
+    //Translit words from russian
+    func translitWords(str: String) {
+        let dict = ["Я" :"YA", "З" : "Z", "м" : "m", "о" : "o", "р" : "r", "Д" : "D" ,"а" : "a"]
+        var translitedWord = ""
+        for chr in str {
+            let char = "\(chr)"
+            for i in dict.keys {
+                if char == i {
+                    translitedWord += dict[i] ?? "*"
+                }
+            }
+        }
+        print(translitedWord)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         symbolCount(str: "Serhii")
@@ -142,6 +157,7 @@ class ViewController: UIViewController {
         numberSplitByComa(number: "12345678444444444444444444569")
         passCheck(str: "ABn0,")
         sortArray(arr: [9, 1, 2, 5, 1, 7, 7, 5])
+        translitWords(str: "морДа")
     }
 
 }
