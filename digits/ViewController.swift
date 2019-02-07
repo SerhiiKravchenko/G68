@@ -148,6 +148,14 @@ class ViewController: UIViewController {
         print(translitedWord)
     }
     
+    //Search by symbols in Array
+    func searchWordInArray(str: String) {
+        let arr = ["lada", "sedan", "baklazhan"]
+        let predicate = NSPredicate(format: "self contains %@", str)
+        let outArr = arr.filter(){predicate.evaluate(with: $0)}
+        print(outArr.sorted{$0 < $1})
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         symbolCount(str: "Serhii")
@@ -158,6 +166,7 @@ class ViewController: UIViewController {
         passCheck(str: "ABn0,")
         sortArray(arr: [9, 1, 2, 5, 1, 7, 7, 5])
         translitWords(str: "морДа")
+        searchWordInArray(str: "da")
     }
 
 }
