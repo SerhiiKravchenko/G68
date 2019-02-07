@@ -156,6 +156,22 @@ class ViewController: UIViewController {
         print(outArr.sorted{$0 < $1})
     }
     
+    //change fucks
+    func replaceFucksInString(str: String) {
+        var outStr = str
+        let arrOfFucks: Set<String> = ["fuck","fak"]
+        for i in arrOfFucks{
+            if outStr.contains(i) {
+                var stars = ""
+                for _ in i {
+                    stars += "*"
+                }
+                outStr = outStr.replacingOccurrences(of: i, with: stars, options: .literal, range: nil)
+            }
+        }
+        print(outStr)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         symbolCount(str: "Serhii")
@@ -167,6 +183,7 @@ class ViewController: UIViewController {
         sortArray(arr: [9, 1, 2, 5, 1, 7, 7, 5])
         translitWords(str: "морДа")
         searchWordInArray(str: "da")
+        replaceFucksInString(str: "hello my fuck")
     }
 
 }
