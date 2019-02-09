@@ -99,6 +99,20 @@ class ViewController: UIViewController {
         return countOfMonths - 1
     }
     
+    //revert number
+    func revertNumber(number: Int) -> Int {
+        var inputNumber = number
+        var result = 0
+        while inputNumber > 0 {
+            var oneNumber = 0
+            oneNumber = inputNumber % 10
+            inputNumber /= 10
+            result *= 10
+            result += oneNumber
+        }
+        return result
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Biger number is = \(whoIsBigger(firstDigit: 5, secondDigit: 10))")
@@ -109,6 +123,7 @@ class ViewController: UIViewController {
         print("Bank account would be $\(bankAccount(bill: 24.0, percentPerYear: 6.0, startYear: 1826, endYear: 2019)) now!")
         print("You need $\(sumPerMonth(months: 10, scholarship: 700, sumPerMonth: 1000, increaseSumInPercents: 3.0)) more on 10 months!")
         print("You will survive \(surviveMonths(scholarship: 700, sumNeedToLivePerMonth: 1000, increaseSumInPercents: 3.0, ownMoney: 2400)) months!")
+        print("Reverted number is \(revertNumber(number: 12345))")
     }
 }
 
