@@ -22,10 +22,18 @@ class ViewController: UIViewController {
         return (sqrt, cube)
     }
     
+    //print digits in column
+    func printDigits(digit: Int) {
+        for i in 0...digit {
+            print("\(i) \(digit - i)")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Biger number is = \(whoIsBigger(firstDigit: 5, secondDigit: 10))")
         print("Sqrt and cube of number = \(sqrtAndCube(number: 125))")
+        printDigits(digit: 5)
     }
 }
 
