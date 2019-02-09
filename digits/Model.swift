@@ -39,32 +39,60 @@ class Model: NSObject {
         }
     }
     
-    func renewTank(tankName: String) {
-        switch tankName {
-        case "water":
-            if tanks["water"] ?? 0 > 0 {
-                print("You dont need to add water")
+    func addCofee() {
+        addToTank(tank: "cofee")
+    }
+    
+    func addMilk() {
+        addToTank(tank: "milk")
+    }
+    
+    func addWater() {
+        addToTank(tank: "water")
+    }
+    
+    func addToTank(tank: String) {
+        if tanks[tank] ?? 0 > 0 {
+            print("You dont need to add \(tank)")
+        }
+        else {
+            if tank == "water" {
+                tanks[tank]! = 2000
+                print("Added 2000 \(tank)")
             }
             else {
-                tanks["water"]! = 2000
-                print("Added 2000 water")
+                tanks[tank]! = 1000
+                print("Added 1000 \(tank)")
             }
-        case "milk":
-            if tanks["milk"] ?? 0 > 0 {
-                print("You dont need to add milk")
-            }
-            else {
-                tanks["milk"]! = 1000
-                print("Added 1000 milk")}
-        case "cofee":
-            if tanks["cofee"] ?? 0 > 0 {
-                print("You dont need to add cofee")
-            }
-            else {
-                tanks["cofee"]! = 1000
-                print("Added 1000 cofee")}
-        default:
-            print("No such tank")
         }
     }
+    
+//    func renewTank(tankName: String) {
+//        switch tankName {
+//        case "water":
+//            if tanks["water"] ?? 0 > 0 {
+//                print("You dont need to add water")
+//            }
+//            else {
+//                tanks["water"]! = 2000
+//                print("Added 2000 water")
+//            }
+//        case "milk":
+//            if tanks["milk"] ?? 0 > 0 {
+//                print("You dont need to add milk")
+//            }
+//            else {
+//                tanks["milk"]! = 1000
+//                print("Added 1000 milk")}
+//        case "cofee":
+//            if tanks["cofee"] ?? 0 > 0 {
+//                print("You dont need to add cofee")
+//            }
+//            else {
+//                tanks["cofee"]! = 1000
+//                print("Added 1000 cofee")}
+//        default:
+//            print("No such tank")
+//        }
+//    }
 }
