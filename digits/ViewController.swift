@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func resultDivide(digit: Int, divide: Int) -> (Bool) {
         return (digit % divide == 0 ? true : false)
     }
@@ -46,6 +45,7 @@ class ViewController: UIViewController {
         }
         return arr
     }
+    
     //return summary count devides of number
     func countOfDivides(number: Int) -> Int {
         let arr = arrayOfDivides(number: number)
