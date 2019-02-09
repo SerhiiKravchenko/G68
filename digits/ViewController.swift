@@ -73,19 +73,30 @@ class ViewController: UIViewController {
         return Int(percents)
     }
     
-    //return sum to live a student year
-    func sumForTenMonth(scholarship: Int, sumPerMonth: Int, increaseSumInPercents: Double) -> (Int) {
-        let period = 10
-        let scholarshipByPeriod = scholarship * period
+    //return sum to live a student per month
+    func sumPerMonth(months: Int, scholarship: Int, sumPerMonth: Int, increaseSumInPercents: Double) -> (Int) {
+        let scholarshipByPeriod = scholarship * months
         var sum = Double(sumPerMonth)
         var totalMoney = 0.0
-        for _ in 0..<period {
+        for _ in 0..<months {
             let percentPerMonthInMoney = sum / 100.0 * increaseSumInPercents
             sum = sum + percentPerMonthInMoney
             totalMoney += sum
         }
         let result = Int(totalMoney) - scholarshipByPeriod
         return result
+    }
+    
+    //return count of months what can live a student
+    func surviveMonths(scholarship: Int, sumNeedToLivePerMonth: Int, increaseSumInPercents: Double, ownMoney: Int) -> Int {
+        let needSumPerMonth = sumPerMonth(months: 1, scholarship: scholarship, sumPerMonth: sumNeedToLivePerMonth, increaseSumInPercents: increaseSumInPercents)
+        var money = ownMoney
+        var countOfMonths = 0
+        while money > 0 {
+            money -= needSumPerMonth
+            countOfMonths += 1
+        }
+        return countOfMonths - 1
     }
     
     override func viewDidLoad() {
@@ -96,7 +107,8 @@ class ViewController: UIViewController {
         print("Summary count of devides = \(countOfDivides(number: 10))")
         print("Does 10 perfect number = \(perfetctNumber(number: 10))")
         print("Bank account would be $\(bankAccount(bill: 24.0, percentPerYear: 6.0, startYear: 1826, endYear: 2019)) now!")
-        print("You need $\(sumForTenMonth(scholarship: 700, sumPerMonth: 1000, increaseSumInPercents: 3.0)) more on 10 months!")
+        print("You need $\(sumPerMonth(months: 10, scholarship: 700, sumPerMonth: 1000, increaseSumInPercents: 3.0)) more on 10 months!")
+        print("You will survive \(surviveMonths(scholarship: 700, sumNeedToLivePerMonth: 1000, increaseSumInPercents: 3.0, ownMoney: 2400)) months!")
     }
 }
 
