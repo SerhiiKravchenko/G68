@@ -10,17 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func digits() {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        let cofeeMachine = Model.init()
+        cofeeMachine.makeCofee()
+        cofeeMachine.renewTank(tankName: "water")
+        cofeeMachine.makeCofee()
+        cofeeMachine.renewTank(tankName: "cofee")
+        cofeeMachine.makeCofee()
+        cofeeMachine.makeCofee()
+        cofeeMachine.makeLatte()
+        cofeeMachine.renewTank(tankName: "milk")
+        cofeeMachine.makeLatte()
+        cofeeMachine.renewTank(tankName: "milk")
+        print(cofeeMachine.tanks)
     }
-
-    
-    
-
 }
 
