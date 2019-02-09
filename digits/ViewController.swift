@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //return summary count devides of number
+    //return summary count devides of input number
     func resultDivide(digit: Int, divide: Int) -> (Bool) {
         return (digit % divide == 0 ? true : false)
     }
