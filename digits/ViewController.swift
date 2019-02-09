@@ -10,17 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func digits() {
-        
+    //return bigger digit
+    func whoIsBigger(firstDigit: Int, secondDigit: Int) -> Int {
+        return firstDigit > secondDigit ? firstDigit : secondDigit
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        print("Biger number is = \(whoIsBigger(firstDigit: 5, secondDigit: 10))")
     }
-
-    
-    
-
 }
 
