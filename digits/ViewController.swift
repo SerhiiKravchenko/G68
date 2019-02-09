@@ -29,23 +29,37 @@ class ViewController: UIViewController {
         }
     }
     
-    //return summary count devides of input number
+    
     func resultDivide(digit: Int, divide: Int) -> (Bool) {
         return (digit % divide == 0 ? true : false)
     }
     
-    func countOfDivides(number: Int) -> Int{
-        var countDevides = 0
-        for i in 1...number {
+    func arrayOfDivides(number: Int) -> [Int] {
+        var arr = [Int]()
+        for i in 1..<number {
             if resultDivide(digit: number, divide: i) {
-                print("\(number) divided on \(i)")
-                countDevides += 1
+                arr.append(i)
             }
             else {
                 continue
             }
         }
-        return countDevides
+        return arr
+    }
+    //return summary count devides of number
+    func countOfDivides(number: Int) -> Int {
+        let arr = arrayOfDivides(number: number)
+        return arr.count
+    }
+    
+    func perfetctNumber(number: Int) -> (Bool) {
+        let arr = arrayOfDivides(number: number)
+        var summOfDivides = 0
+        for i in 0..<arr.count {
+            print("\(number) devided on \(arr[i])")
+            summOfDivides += arr[i]
+        }
+        return summOfDivides == number ? true : false
     }
     
     override func viewDidLoad() {
@@ -54,6 +68,8 @@ class ViewController: UIViewController {
         print("Sqrt and cube of number = \(sqrtAndCube(number: 125))")
         printDigits(digit: 5)
         print("Summary count of devides = \(countOfDivides(number: 10))")
+        print("Does 10 perfect number = \(perfetctNumber(number: 10))")
+    
     }
 }
 
