@@ -73,6 +73,21 @@ class ViewController: UIViewController {
         return Int(percents)
     }
     
+    //return sum to live a student year
+    func sumForTenMonth(scholarship: Int, sumPerMonth: Int, increaseSumInPercents: Double) -> (Int) {
+        let period = 10
+        let scholarshipByPeriod = scholarship * period
+        var sum = Double(sumPerMonth)
+        var totalMoney = 0.0
+        for _ in 0..<period {
+            let percentPerMonthInMoney = sum / 100.0 * increaseSumInPercents
+            sum = sum + percentPerMonthInMoney
+            totalMoney += sum
+        }
+        let result = Int(totalMoney) - scholarshipByPeriod
+        return result
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Biger number is = \(whoIsBigger(firstDigit: 5, secondDigit: 10))")
@@ -81,9 +96,7 @@ class ViewController: UIViewController {
         print("Summary count of devides = \(countOfDivides(number: 10))")
         print("Does 10 perfect number = \(perfetctNumber(number: 10))")
         print("Bank account would be $\(bankAccount(bill: 24.0, percentPerYear: 6.0, startYear: 1826, endYear: 2019)) now!")
-        
-        
-    
+        print("You need $\(sumForTenMonth(scholarship: 700, sumPerMonth: 1000, increaseSumInPercents: 3.0)) more on 10 months!")
     }
 }
 
