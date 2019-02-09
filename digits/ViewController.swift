@@ -62,6 +62,17 @@ class ViewController: UIViewController {
         return summOfDivides == number ? true : false
     }
     
+    //return total sum with percents per period
+    func bankAccount(bill: Double, percentPerYear: Double, startYear: Int, endYear: Int) -> Int {
+        var sum = bill
+        var percents = 0.0
+        for _ in 0..<endYear-startYear {
+            percents = sum / 100 * percentPerYear
+            sum = sum + percents
+        }
+        return Int(percents)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Biger number is = \(whoIsBigger(firstDigit: 5, secondDigit: 10))")
@@ -69,6 +80,9 @@ class ViewController: UIViewController {
         printDigits(digit: 5)
         print("Summary count of devides = \(countOfDivides(number: 10))")
         print("Does 10 perfect number = \(perfetctNumber(number: 10))")
+        print("Bank account would be $\(bankAccount(bill: 24.0, percentPerYear: 6.0, startYear: 1826, endYear: 2019)) now!")
+        
+        
     
     }
 }
