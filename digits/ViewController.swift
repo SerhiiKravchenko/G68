@@ -14,20 +14,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let cofeeMachine = Model.init()
         cofeeMachine.makeCofee()
-//        cofeeMachine.renewTank(tankName: "water")
         cofeeMachine.addWater()
         cofeeMachine.makeCofee()
-//        cofeeMachine.renewTank(tankName: "cofee")
         cofeeMachine.addCofee()
         cofeeMachine.makeCofee()
         cofeeMachine.makeCofee()
         cofeeMachine.makeLatte()
-//        cofeeMachine.renewTank(tankName: "milk")
         cofeeMachine.addMilk()
         cofeeMachine.makeLatte()
-//        cofeeMachine.renewTank(tankName: "milk")
         cofeeMachine.addMilk()
-        print(cofeeMachine.tanks)
     }
 }
 
