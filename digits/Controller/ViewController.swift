@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var answerTextView: UITextField!
     
-    let cofeeMachine = Model.init()
+    let cofeeMachine = CofeeMachine.init()
     
     @IBAction func cofeeMakeButton(_ sender: Any) {
         answerTextView.text = cofeeMachine.makeCofee()

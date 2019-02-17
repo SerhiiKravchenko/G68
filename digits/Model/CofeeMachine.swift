@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Model: NSObject {
+class CofeeMachine: NSObject {
     
     enum Liquid: String {
         case water
@@ -30,10 +30,12 @@ class Model: NSObject {
         case wrongTank = "Wrong tank!"
     }
     
-    private var tanks = [Liquid.water : 0, Liquid.milk : 0, Liquid.cofee : 0]
+    private var tanks: [Liquid : Int] = [.water : 0,
+                                         .milk  : 0,
+                                         .cofee : 0]
     
     private func checkTank(_ tankName: Liquid, _ tankValue: Int) -> Liquid {
-        return tankValue == 0 ? tankName : Liquid.present
+        return tankValue == 0 ? tankName : .present
     }
     
     private func cofee() {
@@ -48,17 +50,17 @@ class Model: NSObject {
     
     private func makeDrink(drinkName: Drink) -> String {
         
-        if checkTank(Liquid.water, tanks[Liquid.water] ?? 0) != Liquid.present {
+        if checkTank(.water, tanks[.water] ?? 0) != .present {
             return "Add \(Liquid.water.rawValue) please"
         }
-        if checkTank(Liquid.cofee, tanks[Liquid.cofee] ?? 0) != Liquid.present {
+        if checkTank(.cofee, tanks[.cofee] ?? 0) != .present {
             return "Add \(Liquid.cofee.rawValue) please"
         }
         if drinkName == .cofee {
             cofee()
             return Answers.takeDrink.rawValue + Liquid.cofee.rawValue
         }
-        if checkTank(Liquid.milk, tanks[Liquid.milk] ?? 0) != Liquid.present {
+        if checkTank(.milk, tanks[.milk] ?? 0) != .present {
             return "Add \(Liquid.milk.rawValue) please"
         }
         if drinkName == .latte {
@@ -73,7 +75,7 @@ class Model: NSObject {
             return Answers.dontNeedAdd.rawValue + tank.rawValue
         }
         else {
-            if tank == Liquid.water {
+            if tank == .water {
                 tanks[tank]! = 2000
                 return "Added 2000 \(tank)"
             }
